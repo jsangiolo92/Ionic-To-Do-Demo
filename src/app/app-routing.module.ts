@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'todo-list', pathMatch: 'full' },
-  { path: 'todo-list', loadChildren: './todo-list/todo-list.module#TodoListPageModule' },
+  { path: '', redirectTo: 'list', pathMatch: 'full' },
+  { path: 'list', loadChildren: './todo-list/todo-list.module#TodoListPageModule' },
+  { path: 'input', loadChildren: './input-form/input-form.module#InputFormPageModule' },
 ];
 
 @NgModule({
