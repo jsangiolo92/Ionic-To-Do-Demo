@@ -19,8 +19,13 @@
 <ion-footer>
   <ion-toolbar>
     <ion-buttons slot="primary">
-      <ion-button shape="round" fill="outline" color="success">Update <ion-icon name="clipboard"></ion-icon></ion-button>
-      <ion-button shape="round" fill="outline" color="danger">Delete <ion-icon name="trash"></ion-icon></ion-button>
+      <ion-button shape="round" fill="outline" color="success" (click)="handleEdit(currentToDo.id)">
+        Update <ion-icon name="clipboard"></ion-icon>
+      </ion-button>
+      <ion-button 
+        shape="round" fill="outline" color="danger" (click)="presentDeleteAlert(currentToDo.id)">
+        Delete <ion-icon name="trash"></ion-icon>
+      </ion-button>
     </ion-buttons>
     <ion-nav>
       <ion-item>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ToDoItem } from './todo-item.model';
+import { ToDoItem } from '../todo-entry/todo-item.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +31,10 @@ export class ToDoListService {
     return this.toDoList.find(todo => {
       return todo.id === id;
     });
+  }
+
+  addToDo(newToDo: ToDoItem): void {
+    this.toDoList.push(newToDo);
+    console.log('toDoList is: ', this.toDoList);
   }
 }
