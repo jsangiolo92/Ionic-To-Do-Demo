@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>input-form</ion-title>
+    <ion-title>Input Form</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <p>Input Form page works</p>
+  <ion-item>
+    <ion-label>New To Do</ion-label>
+    <ion-input placeholder="Enter to do here" [(ngModel)]="userInput"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Important?</ion-label>
+    <ion-checkbox slot="end" [(ngModel)]="important"></ion-checkbox>
+  </ion-item>
+
+  <ion-button fill="outline" shape="round" (click)="handleClick()">Add to To Do List</ion-button>
 </ion-content>

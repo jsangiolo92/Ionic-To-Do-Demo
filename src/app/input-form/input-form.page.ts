@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InputFormService } from './input-form.service';
 
 @Component({
   selector: 'app-input-form',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputFormPage implements OnInit {
 
-  constructor() { }
+  userInput = '';
+  important = false;
+
+  constructor(private inputFormService: InputFormService) { }
 
   ngOnInit() {
+  }
+
+  handleClick(): void {
+    this.inputFormService.postToDo(this.userInput, this.important);
+    this.userInput = '';
+    this.important = false;
   }
 
 }

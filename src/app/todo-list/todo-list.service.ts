@@ -7,7 +7,7 @@ import { ToDoItem } from './todo-item.model';
   providedIn: 'root'
 })
 export class ToDoListService {
-  private url: string = '../../assets/dummy.json';
+  private url = '../../assets/dummy.json';
 
   constructor(private http: HttpClient) { }
 
