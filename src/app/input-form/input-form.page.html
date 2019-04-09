@@ -15,5 +15,7 @@
     <ion-checkbox slot="end" [(ngModel)]="important"></ion-checkbox>
   </ion-item>
 
-  <ion-button fill="outline" shape="round" (click)="handleClick()">Add to To Do List</ion-button>
+  <ion-button color="success" fill="outline" shape="round" (click)="handleClick()">
+    Add to To Do List <ion-icon slot="end" name="add-circle-outline"></ion-icon>
+  </ion-button>
 </ion-content>

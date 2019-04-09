@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class InputFormService {
-  constructor(http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   postToDo(toDoItem: string, important: boolean): void {
     const obj = {item: toDoItem, important: important};
