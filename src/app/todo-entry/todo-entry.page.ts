@@ -44,15 +44,15 @@ export class TodoEntryPage implements OnInit {
     });
 
     alert.present()
-    .then(() => {
-      alert.onWillDismiss()
-      .then( ({role}) => {
-        if (role === 'delete') {
-          this.handleDelete(id);
-        } else {
-          console.log('Delete Canceled!');
-        }
-      });
+    .then( () => {
+      return alert.onWillDismiss();
+    })
+    .then( ({role}) => {
+      if (role === 'delete') {
+        this.handleDelete(id);
+      } else {
+        console.log('Delete Canceled!');
+      }
     });
   }
 
