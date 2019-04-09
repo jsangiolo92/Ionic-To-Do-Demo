@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>To Do List</ion-title>
+    <ion-title>Current To-Do List</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -27,6 +27,16 @@
   </ion-list>
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-nav>
+      <ion-item>
+        <ion-label routerLink="/input">Add to List</ion-label>
+      </ion-item>
+    </ion-nav>
+  </ion-toolbar>
+</ion-footer>
 
 <ng-template #thenBlock>
   <ion-col text-center><ion-icon name="alert"></ion-icon></ion-col>
