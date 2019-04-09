@@ -16,7 +16,7 @@
       </ion-grid>
     </ion-item>
 
-    <ion-item slot="start" *ngFor="let todo of toDoList">
+    <ion-item slot="start" *ngFor="let todo of toDoList" routerLink="/list/{{todo.id}}">
       <ion-grid>
         <ion-row>
           <ion-col>{{todo.item}}</ion-col>

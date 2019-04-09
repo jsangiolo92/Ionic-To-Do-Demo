@@ -5,6 +5,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
   { path: 'list', loadChildren: './todo-list/todo-list.module#TodoListPageModule' },
   { path: 'input', loadChildren: './input-form/input-form.module#InputFormPageModule' },
+  { path: 'list/:id', loadChildren: './todo-entry/todo-entry.module#TodoEntryPageModule' },
 ];
 
 @NgModule({
