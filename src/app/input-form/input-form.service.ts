@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class InputFormService {
   constructor(private http: HttpClient) { }
 
-  postToDo(toDoItem: string, important: boolean): void {
-    const obj = {item: toDoItem, important: important};
+  postToDo(toDoItem: string, details: string, important: boolean): void {
+    const obj = {item: toDoItem, details: details, important: important};
     console.log('new todo to post is: ', obj);
   }
 }

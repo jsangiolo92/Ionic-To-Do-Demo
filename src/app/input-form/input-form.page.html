@@ -6,8 +6,13 @@
 
 <ion-content>
   <ion-item>
-    <ion-label>New To Do</ion-label>
+    <ion-label position="floating">New To Do</ion-label>
     <ion-input placeholder="Enter to do here" [(ngModel)]="userInput"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Details</ion-label>
+    <ion-textarea placeholder="Enter additional info" [(ngModel)]="details"></ion-textarea>
   </ion-item>
 
   <ion-item>

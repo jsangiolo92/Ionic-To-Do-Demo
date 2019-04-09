@@ -9,6 +9,7 @@ import { InputFormService } from './input-form.service';
 export class InputFormPage implements OnInit {
 
   userInput = '';
+  details = '';
   important = false;
 
   constructor(private inputFormService: InputFormService) { }
@@ -17,8 +18,9 @@ export class InputFormPage implements OnInit {
   }
 
   handleClick(): void {
-    this.inputFormService.postToDo(this.userInput, this.important);
+    this.inputFormService.postToDo(this.userInput, this.details, this.important);
     this.userInput = '';
+    this.details = '';
     this.important = false;
   }
 
