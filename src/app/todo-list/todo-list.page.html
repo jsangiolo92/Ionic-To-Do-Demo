@@ -1,9 +1,44 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>ToDo List</ion-title>
+    <ion-title>Current To-Do List</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <p>Todo List page works</p>
+
+  <ion-list>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>Item</ion-col>
+          <ion-col text-center>Important?</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item slot="start" *ngFor="let todo of toDoList" routerLink="/list/{{todo.id}}">
+      <ion-grid>
+        <ion-row>
+          <ion-col>{{todo.item}}</ion-col>
+          <ion-col *ngIf="todo.important; then thenBlock"></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-nav>
+      <ion-item>
+        <ion-label text-right routerLink="/input">Add to List</ion-label>
+      </ion-item>
+    </ion-nav>
+  </ion-toolbar>
+</ion-footer>
+
+<ng-template #thenBlock>
+  <ion-col text-center><ion-icon name="alert"></ion-icon></ion-col>
+</ng-template>
+

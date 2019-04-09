@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Entry Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title text-center>{{currentToDo.item}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{currentToDo.detail}}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button shape="round" fill="outline" color="success" (click)="handleEdit(currentToDo.id)">
+        Update <ion-icon name="clipboard"></ion-icon>
+      </ion-button>
+      <ion-button 
+        shape="round" fill="outline" color="danger" (click)="presentDeleteAlert(currentToDo.id)">
+        Delete <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-nav>
+      <ion-item>
+        <ion-label routerLink="/list" routerDirection="back">Back To List</ion-label>
+      </ion-item>
+    </ion-nav>
+  </ion-toolbar>
+</ion-footer>

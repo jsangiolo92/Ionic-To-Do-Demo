@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Input Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">New To Do</ion-label>
+    <ion-input placeholder="Enter to do here" [(ngModel)]="userInput"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Details</ion-label>
+    <ion-textarea placeholder="Enter additional info" [(ngModel)]="details"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Important?</ion-label>
+    <ion-checkbox slot="end" [(ngModel)]="important"></ion-checkbox>
+  </ion-item>
+
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button color="success" fill="outline" shape="round" (click)="handleClick()">
+        Add to To Do List <ion-icon slot="end" name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-nav>
+      <ion-item>
+        <ion-label routerLink="/list" routerDirection="back">Back To List</ion-label>
+      </ion-item>
+    </ion-nav>
+  </ion-toolbar>
+</ion-footer>

@@ -4,12 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-import { TodoListPage } from './todo-list.page';
+
+import { InputFormPage } from './input-form.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: TodoListPage
+    component: InputFormPage
   }
 ];
 
@@ -20,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [TodoListPage]
+  declarations: [InputFormPage]
 })
-export class TodoListPageModule {}
+export class InputFormPageModule {}
