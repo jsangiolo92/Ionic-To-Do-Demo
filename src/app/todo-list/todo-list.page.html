@@ -1,17 +1,17 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="light">
     <ion-title>Current To-Do List</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="secondary">
 
   <ion-list>
-    <ion-item>
+    <ion-item color="secondary">
       <ion-grid>
         <ion-row>
-          <ion-col>Item</ion-col>
-          <ion-col text-center>Important?</ion-col>
+          <ion-col><ion-text color="dark">Item</ion-text></ion-col>
+          <ion-col text-center><ion-text color="dark">Important?</ion-text></ion-col>
         </ion-row>
       </ion-grid>
     </ion-item>
@@ -29,12 +29,12 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
-    <ion-nav>
-      <ion-item>
-        <ion-label text-right routerLink="/input">Add to List</ion-label>
-      </ion-item>
-    </ion-nav>
+  <ion-toolbar color="light">
+    <ion-buttons slot="primary">
+      <ion-button size="large" fill="clear" routerLink="/input">
+        Add to List <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-footer>
 
