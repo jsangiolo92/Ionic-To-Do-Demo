@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="light">
     <ion-title>Entry Detail</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
+<ion-content color="secondary">
+  <ion-card color="light">
     <ion-card-header>
       <ion-card-title text-center>{{currentToDo.item}}</ion-card-title>
     </ion-card-header>
@@ -17,7 +17,7 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
+  <ion-toolbar color="light">
     <ion-buttons slot="primary">
       <ion-button shape="round" fill="outline" color="success" (click)="handleEdit(currentToDo.id)">
         Update <ion-icon name="clipboard"></ion-icon>
@@ -27,10 +27,10 @@
         Delete <ion-icon name="trash"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-nav>
-      <ion-item>
-        <ion-label routerLink="/list" routerDirection="back">Back To List</ion-label>
-      </ion-item>
-    </ion-nav>
+    <ion-buttons slot="secondary">
+      <ion-button size="large" fill="clear" routerLink="/list" routerDirection="back">
+        <ion-icon name="arrow-round-back"></ion-icon> Back to List
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-footer>
