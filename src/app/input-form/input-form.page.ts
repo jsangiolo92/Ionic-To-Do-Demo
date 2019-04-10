@@ -18,7 +18,8 @@ export class InputFormPage implements OnInit {
   }
 
   handleClick(): void {
-    this.inputFormService.postToDo(this.userInput, this.details, this.important);
+    this.inputFormService.postToDo(this.userInput, this.details, this.important)
+      .subscribe(response => console.log('response from POST: ', response));
     this.userInput = '';
     this.details = '';
     this.important = false;

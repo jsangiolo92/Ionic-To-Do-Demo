@@ -1,5 +1,5 @@
 export interface ToDoItem {
-  id: number;
+  id?: number;
   item: string;
   important: boolean;
   detail: string;

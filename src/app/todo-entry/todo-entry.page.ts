@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToDoItem } from './todo-item.model';
-import { ActivatedRoute } from '@angular/router';
-import { ToDoListService } from '../todo-list/todo-list.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ToDoEntryService } from './todo-entry.service';
 
 @Component({
   selector: 'app-todo-entry',
@@ -10,19 +10,23 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./todo-entry.page.scss'],
 })
 export class TodoEntryPage implements OnInit {
-
   currentToDo: ToDoItem;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
-    private toDoListService: ToDoListService,
+    private toDoEntryService: ToDoEntryService,
     private alertCtrl: AlertController
     ) { }
 
   ngOnInit() {
 // tslint:disable-next-line: radix
     const id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.currentToDo = this.toDoListService.getToDo(id);
+    this.toDoEntryService.getToDo(id)
+      .subscribe( (response) => {
+        console.log('response is: ', response);
+        this.currentToDo = response.toDoItem;
+      });
   }
 
   handleEdit(id: number) {
@@ -30,7 +34,9 @@ export class TodoEntryPage implements OnInit {
   }
 
   handleDelete(id: number): void {
-    console.log('to do to be deleted is: ', id);
+    this.toDoEntryService.deleteToDo(id)
+      .subscribe( (response) => console.log('response from DELETE: ', response));
+    this.router.navigate(['/list']);
   }
 
   async presentDeleteAlert(id: number) {

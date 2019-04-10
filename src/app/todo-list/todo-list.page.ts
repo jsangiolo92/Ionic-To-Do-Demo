@@ -14,12 +14,10 @@ export class TodoListPage implements OnInit {
   constructor(private toDoListService: ToDoListService) { }
 
   ngOnInit() {
-    // use when using get request
-    // this.toDoListService.getToDos()
-    //     .subscribe( (data) => {
-    //       console.log({data});
-    //       this.toDoList = data;
-    //     });
-    this.toDoList = this.toDoListService.getToDos();
+    this.toDoListService.getToDos()
+        .subscribe( (response) => {
+          console.log('response is: ', response);
+          this.toDoList = response.toDoItemList;
+        });
   }
 }
