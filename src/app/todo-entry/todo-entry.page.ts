@@ -10,7 +10,7 @@ import { ToDoEntryService } from './todo-entry.service';
   styleUrls: ['./todo-entry.page.scss'],
 })
 export class TodoEntryPage implements OnInit {
-  currentToDo: ToDoItem;
+  currentToDo: ToDoItem = null;
 
   constructor(
     private router: Router,
@@ -35,8 +35,10 @@ export class TodoEntryPage implements OnInit {
 
   handleDelete(id: number): void {
     this.toDoEntryService.deleteToDo(id)
-      .subscribe( (response) => console.log('response from DELETE: ', response));
-    this.router.navigate(['/list']);
+      .subscribe( (response) => {
+        console.log('response from DELETE: ', response);
+        this.router.navigate(['/list']);
+      });
   }
 
   async presentDeleteAlert(id: number) {
