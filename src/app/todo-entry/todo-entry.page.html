@@ -5,15 +5,7 @@
 </ion-header>
 
 <ion-content color="secondary">
-  <ion-card color="light">
-    <ion-card-header>
-      <ion-card-title text-center>{{currentToDo.item}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      {{currentToDo.detail}}
-    </ion-card-content>
-  </ion-card>
-
+  <ion-card *ngIf="currentToDo; then thenBlock; else elseBlock"></ion-card>
 </ion-content>
 
 <ion-footer>
@@ -34,3 +26,18 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>
+
+<ng-template #thenBlock>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title text-center>{{currentToDo.item}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{currentToDo.detail}}
+    </ion-card-content>
+  </ion-card>
+</ng-template>
+
+<ng-template #elseBlock>
+  <p>Loading...</p>
+</ng-template>

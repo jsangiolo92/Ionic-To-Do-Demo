@@ -14,10 +14,18 @@ export class TodoListPage implements OnInit {
   constructor(private toDoListService: ToDoListService) { }
 
   ngOnInit() {
+    this.fetchToDos();
+  }
+
+  ionViewWillEnter() {
+    this.fetchToDos();
+  }
+
+  fetchToDos(): void {
     this.toDoListService.getToDos()
-        .subscribe( (response) => {
-          console.log('response is: ', response);
-          this.toDoList = response.toDoItemList;
-        });
+      .subscribe( (response) => {
+        console.log('response is: ', response);
+        this.toDoList = response.toDoItemList;
+      });
   }
 }

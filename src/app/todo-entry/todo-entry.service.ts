@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ToDoItemResponse } from '../models/todo-entry-response.model';
+import { ToDoItem } from './todo-item.model';
 
 @Injectable({
   providedIn: 'root'
