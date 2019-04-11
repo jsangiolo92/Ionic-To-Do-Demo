@@ -30,7 +30,7 @@ export class TodoEntryPage implements OnInit {
   }
 
   handleEdit(id: number) {
-    console.log('to do to be updated is: ', id);
+    this.router.navigate([`/input/${id}`]);
   }
 
   handleDelete(id: number): void {
@@ -42,7 +42,6 @@ export class TodoEntryPage implements OnInit {
   }
 
   async presentDeleteAlert(id: number) {
-    console.log('called presentDeleteAlert');
     const alert = await this.alertCtrl.create({
       header: 'Warning',
       subHeader: 'Delete Clicked',
@@ -65,3 +64,5 @@ export class TodoEntryPage implements OnInit {
   }
 
 }
+
+
