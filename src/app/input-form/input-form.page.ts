@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { InputFormService } from './input-form.service';
-import { ToDoItem } from '../todo-entry/todo-item.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ToDoEntryService } from '../todo-entry/todo-entry.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-input-form',
@@ -11,14 +11,17 @@ import { ToDoEntryService } from '../todo-entry/todo-entry.service';
 })
 export class InputFormPage implements OnInit {
   id: number = null;
-  userInput = '';
-  details = '';
-  important = false;
+  toDoForm: FormGroup = this.fb.group({
+    entry: [''],
+    details: [''],
+    important: [false]
+  });
 
   constructor(
     private inputFormService: InputFormService,
     private toDoEntryService: ToDoEntryService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private fb: FormBuilder
     ) { }
 
   ngOnInit() {
@@ -30,16 +33,14 @@ export class InputFormPage implements OnInit {
       this.toDoEntryService.getToDo(parseInt(id))
         .subscribe( ({toDoItem}) => {
           this.id = toDoItem.id;
-          this.userInput = toDoItem.item;
-          this.details = toDoItem.detail;
-          this.important = toDoItem.important;
+          this.toDoForm.setValue({entry: toDoItem.item, details: toDoItem.detail, important: toDoItem.important});
         });
     }
   }
 
   handleClick(): void {
     if (!this.id) {
-      this.inputFormService.postToDo(this.userInput, this.details, this.important)
+      this.inputFormService.postToDo(this.toDoForm.value.entry, this.toDoForm.value.details, this.toDoForm.value.important)
         .subscribe(
           (response) => {
             console.log('response from POST: ', response);
@@ -50,7 +51,7 @@ export class InputFormPage implements OnInit {
           }
         );
     } else {
-      this.inputFormService.putToDo(this.id, this.userInput, this.details, this.important)
+      this.inputFormService.putToDo(this.id, this.toDoForm.value.entry, this.toDoForm.value.details, this.toDoForm.value.important)
         .subscribe(
           (response) => {
             console.log('response from PUT: ', response);
@@ -63,9 +64,7 @@ export class InputFormPage implements OnInit {
     }
 
     this.id = null;
-    this.userInput = '';
-    this.details = '';
-    this.important = false;
+    this.toDoForm.setValue({entry: '', details: '', important: false});
   }
 
 }
